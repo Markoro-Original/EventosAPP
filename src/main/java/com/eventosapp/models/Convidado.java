@@ -1,12 +1,14 @@
 package com.eventosapp.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "TB_CONVIDADO")
 public class Convidado {
     
     @Id
+    @NotBlank
     private String rg;
     private String nomeConvidado;
 

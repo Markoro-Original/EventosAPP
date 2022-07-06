@@ -21,6 +21,14 @@ public class EventoController {
     @Autowired
     private EventoRepository eventoRepository;
 
+    @RequestMapping("/")
+    public ModelAndView index(){
+        ModelAndView modelAndView = new ModelAndView("index");
+        Iterable<Evento> eventos = eventoRepository.findAll();
+        modelAndView.addObject("eventos", eventos);
+        return modelAndView;
+    }
+
     @RequestMapping(value ="/cadastrarEvento", method = RequestMethod.GET)
     public String form(){
         return "evento/formEvento";
@@ -47,6 +55,9 @@ public class EventoController {
         Evento evento = eventoRepository.findByCodigo(codigo);
         ModelAndView modelAndView = new ModelAndView("evento/detalhesEvento");
         modelAndView.addObject("evento", evento);
+
+        Iterable<Convidado> convidados = convidadoRepository.findByEvento(evento);
+        modelAndView.addObject("convidados", convidados);
         return modelAndView;
     }
 

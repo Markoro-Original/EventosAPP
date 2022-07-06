@@ -6,7 +6,7 @@ xmlns:layout="http//www.ultraq.net.nz/thymeleaf/layout">
 </head>
 <body>
 <h1>Evento</h1>
-<h3><a href="/evento">Lista de Evento</a></h3>
+<h3><a href="/eventos">Lista de Evento</a></h3>
 <div th:each="evento :${evento}" class="container">
     <div class="row">
         <p>Nome: <span th:text="${evento.nome}"></span></p>
@@ -20,6 +20,13 @@ xmlns:layout="http//www.ultraq.net.nz/thymeleaf/layout">
         RG: <input type="text" value="" name="rg"/>
         <button type="submit">Adicionar</button>
     </form>
+</div>
+<h3>Lista de Convidados</h3>
+<div class="container" th:each="convidado : ${convidados}">
+    <div class="row">
+        <p><span th:text="${convidado.nomeConvidado}"></span></p>
+        <p><span th:text="${convidado.rg}"></span></p>
+    </div>
 </div>
 </body>
 </html>
