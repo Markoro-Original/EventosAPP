@@ -1,13 +1,29 @@
-<html>
+<!DOCTYPE html>
+<html xmlsn:th="http://thymeleaf.org"
+xmlns:layout="http//www.ultraq.net.nz/thymeleaf/layout">
 <head>
-    <title>
-        Biri biri 2.0
-    </title>
+    <title>EventosApp</title>
 </head>
 <body>
-
-<h3>
-    Olá mundo novo e melhorado.
-</h3>
+<h1>Lista de Eventos</h1>
+<h3><a href="/cadastrarEvento">Cadastrar Evento</a></h3>
+<table class="container">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Local</th>
+            <th>Data</th>
+            <th>Horario</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="evento : ${eventos}">
+            <td><a th:href="${(#mvc.url('EC#detalhesEvento').arg(0, evento.codigo)).build()}"<span th:text="${evento.nome}"></span></td>
+            <td><span th:text="${evento.local}"></span></td>
+            <td><span th:text="${evento.data}"></span></td>
+            <td><span th:text="${evento.horario}"></span></td>
+        </tr>
+    </tbody>
+</table>
 </body>
 </html>

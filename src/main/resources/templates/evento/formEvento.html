@@ -6,12 +6,21 @@ xmlns:layout="https://www.ultraq.net.nz/thymeleaf/layout">
 </head>
 <body>
 <h1>Cadastro de Eventos</h1>
-<form method="post" action="">
+<h3><a href="/eventos">Lista de Eventos</a></h3>
+<form class="container" method="post" action="">
     Nome:<input type="text" value="" name="nome"/>
-    Local:<input type="text" value="" name="local"/>
-    Data:<input type="date" value="" name="data"/>
-    Horario:<input type="text" value="" name="horario"/>
 
+    <div class="row">
+        <div class="input.field col s6">
+            Local:<input type="text" value="" name="local"/>
+        </div>
+        <div class="input.field col s3">
+            Data:<input type="date" value="" name="data"/>
+        </div>
+        <div class="input.field col s3">
+            Horario:<input type="text" value="" name="horario"/>
+        </div>
+    </div>
     <button type="submit">Salvar</button>
 </form>
 </body>
